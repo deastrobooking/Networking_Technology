@@ -226,8 +226,194 @@ Other commands:
 
 ---
 
-* Make flashcards
-* Generate practice quiz questions
-* Or create a Layer-by-Layer OSI cheat sheet
+## Introduction to Transmission Media & Circuit Fundamentals
 
-Just tell me what format you want.
+*A Foundation Guide for Networking Technicians*
+
+As a networking technician, your job doesn’t stop at configuring switches and assigning IP addresses. The physical layer — cables, signal behavior, and electrical integrity — is what makes everything else possible. Understanding how signals travel, how cables are built, and how failures occur will make you faster at troubleshooting and more confident in the field.
+
+---
+
+# 1️⃣ Transmission Characteristics
+
+Every network link has physical limits. These define how well data can travel from one device to another.
+
+### Key Terms
+
+* **Bandwidth** – The theoretical maximum capacity of a link.
+* **Bit Rate** – How many bits per second can be transmitted.
+* **Throughput** – The *actual* data transferred after overhead, collisions, and interference.
+* **Latency** – The delay between sending and receiving data.
+
+🔎 **Important Reality:**
+Throughput is *never* equal to bandwidth. Overhead (TCP/IP headers, retransmissions, encryption, switching delays) always reduces real-world performance.
+
+---
+
+# 2️⃣ Twisted-Pair Cabling (Copper Networks)
+
+Twisted-pair cabling is the most common physical medium in enterprise environments.
+
+## Why Wires Are Twisted
+
+Twisting reduces electromagnetic interference (EMI) and crosstalk between wire pairs.
+
+### Crosstalk Types
+
+* **NEXT (Near-End Crosstalk)**
+  Occurs near the transmitting end. Often caused by poor termination or damaged insulation near the source.
+
+* **FEXT (Far-End Crosstalk)**
+  Occurs near the receiving end.
+
+* **Alien Crosstalk**
+  Interference between separate adjacent cables.
+
+---
+
+## Twisted-Pair Categories & Speeds
+
+| Category | Max Speed | 10G Support (100m?) |
+| -------- | --------- | ------------------- |
+| Cat 5e   | 1 Gbps    | ❌                   |
+| Cat 6    | 1–10 Gbps | Limited (~55m)      |
+| Cat 6a   | 10 Gbps   | ✅                   |
+| Cat 7    | 10 Gbps+  | ✅                   |
+
+🔧 **For 10GBASE-T at 100 meters:**
+Minimum required standard = **Cat 6a**
+
+---
+
+## Patch Cable Standards
+
+Two wiring standards exist:
+
+* **T568A** (Common in government installations)
+* **T568B** (Common in commercial environments)
+
+For T568A:
+
+* **Pin 1 = White/Green**
+
+Knowing this matters when making patch cables or testing wiring faults.
+
+---
+
+# 3️⃣ Twinaxial & High-Speed Rack Connections
+
+Inside data center racks, short-distance high-speed connections often use:
+
+### Passive Twinaxial Cable
+
+* Used for 10G, 25G, 40G connections
+* Very low latency
+* Extremely efficient for short rack-to-rack links
+
+This is common between:
+
+* Router ↔ Switch
+* Switch ↔ Switch
+* Server ↔ Top-of-Rack switch
+
+---
+
+# 4️⃣ Fiber Optic Fundamentals
+
+Fiber uses light instead of electrical signals.
+
+## Multimode Fiber (MMF)
+
+* Core size: 50 or 62.5 microns
+* Uses LED light sources
+* More modal dispersion
+* Shorter distances
+
+## Single-Mode Fiber (SMF)
+
+* Core size: ~8–10 microns
+* Uses laser light
+* Minimal modal dispersion
+* Long-distance transmission (kilometers)
+
+### Why SMF Is Better for Long Distances
+
+Because it has a **narrower core**, light travels in a single path. This reduces signal spreading (dispersion) and preserves signal integrity over long distances.
+
+---
+
+## Fiber Problems
+
+### Fiber Type Mismatch
+
+Pairing:
+
+* 50-micron ↔ 62.5-micron cores
+
+This causes signal loss and performance issues.
+
+---
+
+## What Limits Fiber Distance?
+
+### Optical Loss (Attenuation)
+
+As light travels:
+
+* It weakens due to absorption and scattering.
+* Connectors and splices add loss.
+* Eventually, the signal drops below detectable levels.
+
+This is why link budgets matter in fiber design.
+
+---
+
+# 5️⃣ Circuit Fundamentals for Network Techs
+
+Understanding electrical faults is critical when diagnosing cable issues.
+
+## Open Circuit
+
+* Missing connection
+* Current cannot flow
+* Example: Broken conductor in a cable
+
+## Short Circuit
+
+* Unintended connection
+* Current flows where it should not
+* Example: Two wires touching due to damaged insulation
+
+---
+
+# 6️⃣ Practical Technician Mindset
+
+When troubleshooting:
+
+1. Start physical.
+2. Check link lights.
+3. Test continuity.
+4. Verify pinout standard.
+5. Confirm cable category rating.
+6. Test for interference or attenuation.
+
+Layer 1 issues often masquerade as Layer 3 problems.
+
+---
+
+# Final Takeaway
+
+A strong networking technician understands:
+
+* Signal limitations
+* Cable standards
+* Fiber differences
+* Crosstalk behavior
+* Electrical faults
+* Real-world throughput vs theoretical speeds
+
+Master the physical layer, and everything above it becomes easier.
+
+---
+
+
